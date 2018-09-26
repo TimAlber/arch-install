@@ -39,28 +39,28 @@
 ## ALSO LOOK AT THE install_packages FUNCTION TO SEE WHAT IS ACTUALLY INSTALLED
 
 # Drive to install to.
-DRIVE='/dev/sda'
+DRIVE='/dev/mmcblk0'
 
 # Hostname of the installed machine.
-HOSTNAME='host100'
+HOSTNAME='Archbook'
 
 # Encrypt everything (except /boot).  Leave blank to disable.
-ENCRYPT_DRIVE='TRUE'
+ENCRYPT_DRIVE=''
 
 # Passphrase used to encrypt the drive (leave blank to be prompted).
-DRIVE_PASSPHRASE='a'
+DRIVE_PASSPHRASE='root'
 
 # Root password (leave blank to be prompted).
-ROOT_PASSWORD='a'
+ROOT_PASSWORD='root'
 
 # Main user to create (by default, added to wheel group, and others).
-USER_NAME='user'
+USER_NAME='timalba'
 
 # The main user's password (leave blank to be prompted).
-USER_PASSWORD='a'
+USER_PASSWORD='root'
 
 # System timezone.
-TIMEZONE='America/New_York'
+TIMEZONE='Europe/Berlin'
 
 # Have /tmp on a tmpfs or not.  Leave blank to disable.
 # Only leave this blank on systems with very little RAM.
@@ -71,7 +71,7 @@ KEYMAP='us'
 
 # Choose your video driver
 # For Intel
-VIDEO_DRIVER="i915"
+VIDEO_DRIVER="vesa"
 # For nVidia
 #VIDEO_DRIVER="nouveau"
 # For ATI
