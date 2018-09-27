@@ -266,17 +266,17 @@ format_filesystems() {
     local boot_dev="$1"; shift
 
     mkfs.ext2 -L boot "$boot_dev"
-    mkfs.ext4 -L root /dev/vg00/root
-    mkswap /dev/vg00/swap
+    mkfs.ext4 -L root /dev/mmcblk0/root
+    mkswap /dev/mmcblk0/swap
 }
 
 mount_filesystems() {
     local boot_dev="$1"; shift
 
-    mount /dev/vg00/root /mnt
+    mount /dev/mmcblk0/root /mnt
     mkdir /mnt/boot
     mount "$boot_dev" /mnt/boot
-    swapon /dev/vg00/swap
+    swapon /dev/mmcblk0/swap
 }
 
 install_base() {
@@ -289,7 +289,7 @@ install_base() {
 unmount_filesystems() {
     umount /mnt/boot
     umount /mnt
-    swapoff /dev/vg00/swap
+    swapoff /dev/mmcblk0/swap
     vgchange -an
     if [ -n "$ENCRYPT_DRIVE" ]
     then
@@ -331,7 +331,7 @@ install_packages() {
     packages+=' ttf-dejavu ttf-liberation'
 
     # On Intel processors
-    packages+=' intel-ucode'
+    #packages+=' intel-ucode'
 
     # For laptops
     packages+=' xf86-input-synaptics'
@@ -429,8 +429,8 @@ set_fstab() {
 #
 # <file system> <dir>    <type> <options>    <dump> <pass>
 
-/dev/vg00/swap none swap  sw                0 0
-/dev/vg00/root /    ext4  defaults,relatime 0 1
+/dev/mmcblk0/swap none swap  sw                0 0
+/dev/mmcblk0/root /    ext4  defaults,relatime 0 1
 
 UUID=$boot_uuid /boot ext2 defaults,relatime 0 2
 EOF
