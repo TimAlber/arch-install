@@ -316,7 +316,7 @@ install_packages() {
     packages+=' icedtea-web-java7 jdk7-openjdk jre7-openjdk'
 
     # Libreoffice
-    packages+=' libreoffice-calc libreoffice-en-US libreoffice-gnome libreoffice-impress libreoffice-writer hunspell-en hyphen-en mythes-en'
+    #packages+=' libreoffice-calc libreoffice-en-US libreoffice-gnome libreoffice-impress libreoffice-writer hunspell-en hyphen-en mythes-en'
 
     # Misc programs
     packages+=' mplayer pidgin vlc xscreensaver gparted dosfstools ntfsprogs'
